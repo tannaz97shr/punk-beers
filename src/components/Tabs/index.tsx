@@ -29,8 +29,8 @@ export default function Tabs() {
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
+      params.set("page", "1");
       params.set(name, value);
-
       return params.toString();
     },
     [searchParams]

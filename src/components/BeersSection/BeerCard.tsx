@@ -16,7 +16,9 @@ export function BeerCard({ image, name, price, abv, id }: BeerCardProps) {
       className="flex flex-col px-2 py-4 w-[96%] mx-auto max-w-[330px] custom-shadow hover:bg-bg-secondary"
     >
       <div className="relative w-[30%] mx-auto aspect-[2/5] shadow-none">
-        {image && <Image alt={name} src={image} fill />}
+        {image && (
+          <Image className="w-full h-full" alt={name} src={image} fill />
+        )}
       </div>
       <h2 className="mt-4 max-w-full mx-auto font-semibold text-xl truncate">
         {name}
