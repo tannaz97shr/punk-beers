@@ -2,7 +2,7 @@
 
 import { ITabItem } from "@/models/general";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const tabItems: ITabItem[] = [
   {
@@ -30,20 +30,26 @@ export default function Tabs() {
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set("page", "1");
-      params.set(name, value);
+      if (value === "all") {
+        params.delete("food");
+      } else {
+        params.set(name, value);
+      }
+
       return params.toString();
     },
     [searchParams]
   );
 
+  useEffect(() => {
+    router.push(
+      pathname + "?" + createQueryString("food", currentTabId.toString())
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentTabId]);
+
   const onTabChange = (id: string) => {
-    if (id === "all") {
-      setCurrentTabId(id);
-      router.push(pathname);
-      return;
-    }
     setCurrentTabId(id);
-    router.push(pathname + "?" + createQueryString("food", id));
   };
 
   return (

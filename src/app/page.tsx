@@ -12,7 +12,6 @@ export default async function Home({
     searchParams.food ? (searchParams.food as string) : "",
     searchParams.page ? (searchParams.page as string) : "1"
   );
-  console.log("tannaz 2 :", beers);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="z-10 pt-4 max-w-5xl w-full justify-between font-mono text-sm lg:flex flex-col">

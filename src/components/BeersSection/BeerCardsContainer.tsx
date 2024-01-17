@@ -13,8 +13,6 @@ export function BeerCardsContainer({ beers }: BeerCardsContainerProps) {
   const [sortValue, setSortValue] = useState<string>("");
 
   useEffect(() => {
-    console.log("sort value", sortValue);
-
     switch (sortValue) {
       case "name_asc":
         setSortedBeers(
@@ -41,7 +39,7 @@ export function BeerCardsContainer({ beers }: BeerCardsContainerProps) {
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortValue]);
+  }, [sortValue, beers]);
 
   const onSortSelect = (event: React.FormEvent<HTMLSelectElement>) => {
     setSortValue(event.currentTarget.value);
