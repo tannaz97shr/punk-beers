@@ -1,5 +1,5 @@
 import { getBeers } from "@/api/beers";
-import Tabs from "@/components/UI/Tabs";
+import Tabs from "@/components/Tabs";
 
 export default async function Home() {
   const beers = await getBeers();

@@ -7,7 +7,7 @@ export interface INavbarItem {
 
 export interface ITabItem {
   title: string;
-  id: number;
+  id: string;
 }
 
 export interface IBeer {
