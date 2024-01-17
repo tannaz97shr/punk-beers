@@ -8,10 +8,11 @@ export default async function Home({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { beers } = await getBeers(
+  const { beers, message } = await getBeers(
     searchParams.food ? (searchParams.food as string) : "",
     searchParams.page ? (searchParams.page as string) : "1"
   );
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="z-10 pt-4 max-w-5xl w-full justify-between font-mono text-sm lg:flex flex-col">
@@ -27,10 +28,19 @@ export default async function Home({
           exceptional brews.
         </p>
         <Tabs />
-        <BeerCardsContainer beers={beers} />
-        <Pagination
-          current={searchParams.page ? Number(searchParams.page) : 1}
-        />
+        {beers.length ? (
+          <>
+            <BeerCardsContainer beers={beers} />
+            <Pagination
+              current={searchParams.page ? Number(searchParams.page) : 1}
+            />
+          </>
+        ) : (
+          <>
+            <div>No Beer available</div>
+            {message && <div> {message}</div>}
+          </>
+        )}
       </div>
     </main>
   );
