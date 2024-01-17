@@ -2,11 +2,10 @@ import { IBeersResponse } from "@/models/general";
 
 const endpoint: string = process.env.PUNK_ROOT_ENDPOINT as string;
 
-export const getBeers = async (): Promise<IBeersResponse> => {
+export const getBeers = async (food: string): Promise<IBeersResponse> => {
   try {
-    const res = await fetch(`${endpoint}beers`);
+    const res = await fetch(`${endpoint}beers${food ? "?food=" + food : ""}`);
     const beers = await res.json();
-    console.log("get beers tt", beers);
     return { beers: beers };
   } catch (e) {
     console.error("fetching error", e);

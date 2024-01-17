@@ -7,8 +7,10 @@ export default async function Home({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { beers } = await getBeers();
-  console.log("tannaz 2 :", beers);
+  const { beers } = await getBeers(
+    searchParams.food ? (searchParams.food as string) : ""
+  );
+  // console.log("tannaz 2 :", searchParams);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="z-10 pt-4 max-w-5xl w-full justify-between font-mono text-sm lg:flex flex-col">

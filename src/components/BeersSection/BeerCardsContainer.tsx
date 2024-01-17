@@ -14,7 +14,7 @@ export function BeerCardsContainer({ beers }: BeerCardsContainerProps) {
           price={beer.srm}
           abv={beer.abv}
           key={beer.id}
-          image={beer.image_url}
+          image={beer.image_url && beer.image_url}
           name={beer.name}
         />
       ))}

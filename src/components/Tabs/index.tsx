@@ -38,6 +38,7 @@ export default function Tabs() {
 
   const onTabChange = (id: string) => {
     if (id === "all") {
+      setCurrentTabId(id);
       router.push(pathname);
       return;
     }
