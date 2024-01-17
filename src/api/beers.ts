@@ -7,7 +7,7 @@ export const getBeers = async (): Promise<IBeersResponse> => {
     const res = await fetch(`${endpoint}beers`);
     const beers = await res.json();
     console.log("get beers tt", beers);
-    return beers;
+    return { beers: beers };
   } catch (e) {
     console.error("fetching error", e);
     return {
