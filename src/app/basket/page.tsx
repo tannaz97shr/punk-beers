@@ -1,7 +1,7 @@
-export default function BasketPage() {
+export default function CartPage() {
   return (
     <>
-      <div>This is basket page</div>
+      <div>This is cart page</div>
     </>
   );
 }

@@ -18,9 +18,9 @@ const listItems: INavbarItem[] = [
     icon: <FaRegStar style={{ color: "#FF6F00" }} />,
   },
   {
-    id: "basket",
-    title: "shopping basket",
-    href: "/basket",
+    id: "cart",
+    title: "shopping cart",
+    href: "/cart",
     icon: <FaShoppingBasket style={{ color: "#FF6F00" }} />,
   },
 ];

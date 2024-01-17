@@ -4,3 +4,8 @@ export interface INavbarItem {
   href: string;
   icon?: React.ReactNode;
 }
+
+export interface ITabItem {
+  title: string;
+  id: number;
+}
