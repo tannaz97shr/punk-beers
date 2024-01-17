@@ -7,6 +7,7 @@ export const getBeers = async (
   page: string
 ): Promise<IBeersResponse> => {
   try {
+    setTimeout(() => {}, 3000);
     const res = await fetch(
       `${endpoint}beers?page=${page}&per_page=24${food ? "&food=" + food : ""}`
     );
