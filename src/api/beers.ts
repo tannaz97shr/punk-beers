@@ -1,4 +1,4 @@
-import { IBeersResponse } from "@/models/general";
+import { IBeersResponse, ISingleBeerResponse } from "@/models/general";
 
 const endpoint: string = process.env.PUNK_ROOT_ENDPOINT as string;
 
@@ -18,6 +18,23 @@ export const getBeers = async (
     return {
       message: "fetching error",
       beers: [],
+    };
+  }
+};
+
+export const getSingleBeer = async (
+  id: number
+): Promise<ISingleBeerResponse> => {
+  try {
+    setTimeout(() => {}, 3000);
+    const res = await fetch(`${endpoint}beers/${id}}`);
+    const beer = await res.json();
+    return { beer: beer };
+  } catch (e) {
+    console.error("fetching error", e);
+    return {
+      message: "fetching error",
+      beer: [],
     };
   }
 };

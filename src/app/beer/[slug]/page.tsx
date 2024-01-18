@@ -1,13 +1,15 @@
-"use client";
-
+import { getSingleBeer } from "@/api/beers";
 import Modal from "@/components/UI/Modal";
 
-import { useRouter } from "next/navigation";
-
-export default function BeerPage({ params }: { params: { slug: string } }) {
-  const router = useRouter();
+export default async function BeerPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { beer } = await getSingleBeer(Number(params.slug));
+  console.log("beer ", beer);
   return (
-    <Modal closeHandler={() => router.back()}>
+    <Modal>
       <div>This is beer page: {params.slug}</div>
     </Modal>
   );
