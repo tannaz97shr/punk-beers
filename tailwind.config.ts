@@ -16,6 +16,7 @@ const config: Config = {
         "text-secondary": "#a0a0a0",
         "border-brown": "#8D6E63",
         "custom-orange": "#FF6F00",
+        backdrop: "rgba(0,0,0, 0.5)",
       },
     },
   },
