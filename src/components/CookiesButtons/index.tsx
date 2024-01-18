@@ -22,7 +22,6 @@ export default async function CookiesButton({
   const itemsArray: number[] = cookiesItems?.value
     ? JSON.parse(cookiesItems?.value)
     : [];
-  // const indexes: number[] = itemsArray;
   const itemIndex = itemsArray.indexOf(beer.id);
   const itemRemoved = itemsArray.filter((id: number) => id !== beer.id);
   console.log("item removed", itemRemoved);
