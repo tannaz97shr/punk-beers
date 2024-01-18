@@ -1,7 +1,7 @@
-import { getBeers } from "@/api/beers";
 import { BeerCardsContainer } from "@/components/BeersSection/BeerCardsContainer";
 import Pagination from "@/components/Pagination";
 import Tabs from "@/components/Tabs";
+import { getBeers } from "@/lib/beers";
 
 export default async function Home({
   searchParams,

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   FaBars,
-  FaRegStar,
   FaRegWindowClose,
   FaShoppingBasket,
+  FaStar,
 } from "react-icons/fa";
 
 const listItems: INavbarItem[] = [
@@ -15,7 +15,7 @@ const listItems: INavbarItem[] = [
     id: "favorites",
     title: "favorites",
     href: "/favorites",
-    icon: <FaRegStar style={{ color: "#FF6F00" }} />,
+    icon: <FaStar style={{ color: "#FF6F00" }} />,
   },
   {
     id: "cart",
