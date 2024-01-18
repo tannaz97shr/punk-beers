@@ -23,18 +23,18 @@ export const getBeers = async (
 };
 
 export const getSingleBeer = async (
-  id: number
+  id: string
 ): Promise<ISingleBeerResponse> => {
   try {
     setTimeout(() => {}, 3000);
-    const res = await fetch(`${endpoint}beers/${id}}`);
+    const res = await fetch(`${endpoint}beers/${id}`);
     const beer = await res.json();
+    console.log("fetched", `${endpoint}beers/${id}`, beer);
     return { beer: beer };
   } catch (e) {
     console.error("fetching error", e);
     return {
       message: "fetching error",
-      beer: [],
     };
   }
 };

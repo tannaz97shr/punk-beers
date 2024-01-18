@@ -33,6 +33,6 @@ export interface IBeersResponse {
 }
 
 export interface ISingleBeerResponse {
-  beer: IBeer[];
+  beer?: IBeer[];
   message?: string;
 }
