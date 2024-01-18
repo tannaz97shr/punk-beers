@@ -8,7 +8,6 @@ export async function addRemoveCookies(
   time: number
 ) {
   "use server";
-  // console.log("recied:", items);
   cookies().set({
     name: name,
     value: JSON.stringify(items),

@@ -11,8 +11,6 @@ export default async function FavoritesPage() {
     : [];
   const { beers } = await getByIds(...itemsArray);
 
-  // console.log("cart items", itemsArray);
-  console.log("cart items", beers);
   return (
     <>
       <SectionTitle>Favorites</SectionTitle>

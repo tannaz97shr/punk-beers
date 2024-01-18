@@ -18,20 +18,17 @@ export default async function CookiesButton({
 }: AddToListButtonsProps) {
   const cookieStore = cookies();
   const cookiesItems: RequestCookie | undefined = cookieStore.get(name);
-  //**** */
   const itemsArray: number[] = cookiesItems?.value
     ? JSON.parse(cookiesItems?.value)
     : [];
   const itemIndex = itemsArray.indexOf(beer.id);
   const itemRemoved = itemsArray.filter((id: number) => id !== beer.id);
-  console.log("item removed", itemRemoved);
-  console.log("item itemsArray", cookiesItems?.value);
 
   return (
     <form
       action={async () => {
         "use server";
-        if (itemRemoved) {
+        if (itemIndex !== -1) {
           addRemoveCookies([...itemRemoved], name, time);
           return;
         }

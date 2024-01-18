@@ -12,8 +12,6 @@ export default async function CartPage() {
   const { beers } = await getByIds(...itemsArray);
   const sum = [...beers].reduce((a, { srm }) => a + srm, 0);
 
-  // console.log("cart items", itemsArray);
-  console.log("cart items", beers);
   return (
     <>
       <SectionTitle>Shopping Cart</SectionTitle>

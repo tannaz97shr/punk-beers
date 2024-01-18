@@ -46,10 +46,7 @@ export const getByIds = async (...rest: number[]): Promise<IBeersResponse> => {
       `${endpoint}beers?ids=${stringIds.replaceAll(",", "|")}`
     );
     const beers = await res.json();
-    console.log(
-      `${endpoint}beers?ids=${stringIds.replaceAll(",", "|")}`,
-      beers
-    );
+
     return { beers: beers };
   } catch (e) {
     console.error("fetching error", e);
