@@ -1,19 +1,17 @@
 "use server";
 
-import { IBeer } from "@/models/general";
 import { cookies } from "next/headers";
 
 export async function addRemoveCookies(
-  items: IBeer[],
+  items: number[],
   name: string,
   time: number
 ) {
   "use server";
+  // console.log("recied:", items);
   cookies().set({
     name: name,
-    value: JSON.stringify([...items]),
-    httpOnly: true,
-    path: "/",
+    value: JSON.stringify(items),
     expires: Date.now() + time,
   });
 }

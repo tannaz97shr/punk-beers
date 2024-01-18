@@ -37,3 +37,25 @@ export const getSingleBeer = async (
     };
   }
 };
+
+export const getByIds = async (...rest: number[]): Promise<IBeersResponse> => {
+  try {
+    setTimeout(() => {}, 3000);
+    const stringIds = rest.toString();
+    const res = await fetch(
+      `${endpoint}beers?ids=${stringIds.replaceAll(",", "|")}`
+    );
+    const beers = await res.json();
+    console.log(
+      `${endpoint}beers?ids=${stringIds.replaceAll(",", "|")}`,
+      beers
+    );
+    return { beers: beers };
+  } catch (e) {
+    console.error("fetching error", e);
+    return {
+      message: "fetching error",
+      beers: [],
+    };
+  }
+};

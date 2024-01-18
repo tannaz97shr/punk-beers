@@ -1,5 +1,6 @@
 import { addRemoveCookies } from "@/lib/actions";
 import { IBeer } from "@/models/general";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { cookies } from "next/headers";
 
 interface AddToListButtonsProps {
@@ -16,21 +17,15 @@ export default async function CookiesButton({
   icon,
 }: AddToListButtonsProps) {
   const cookieStore = cookies();
-  const itemsCookies = cookieStore.get(name);
-  const itemsArray: IBeer[] = itemsCookies?.value
-    ? JSON.parse(itemsCookies?.value)
+  const cookiesItems: RequestCookie | undefined = cookieStore.get(name);
+  //**** */
+  const itemsArray: number[] = cookiesItems?.value
+    ? JSON.parse(cookiesItems?.value)
     : [];
-  const itemIndex = [...itemsArray.map((item: IBeer) => item.id)].indexOf(
-    beer.id
-  );
-  const itemRemoved: false | IBeer[] =
-    itemIndex > -1
-      ? [
-          ...itemsArray.filter((item: IBeer) => {
-            return item.id !== itemsArray[itemIndex].id;
-          }),
-        ]
-      : false;
+  const itemIndex = itemsArray.indexOf(beer.id);
+  const itemRemoved = itemsArray.filter((id: number) => id !== beer.id);
+  console.log("item removed", itemRemoved);
+  console.log("item itemsArray", cookiesItems?.value);
 
   return (
     <form
@@ -40,7 +35,7 @@ export default async function CookiesButton({
           addRemoveCookies([...itemRemoved], name, time);
           return;
         }
-        addRemoveCookies([...itemsArray, beer], name, time);
+        addRemoveCookies([...itemsArray, beer.id], name, time);
       }}
     >
       <button
