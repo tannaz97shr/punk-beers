@@ -31,3 +31,8 @@ export interface IBeersResponse {
   beers: IBeer[];
   message?: string;
 }
+
+export interface ISingleBeerResponse {
+  beer?: IBeer[];
+  message?: string;
+}

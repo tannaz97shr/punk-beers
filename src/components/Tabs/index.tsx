@@ -24,7 +24,9 @@ export default function Tabs() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [currentTabId, setCurrentTabId] = useState<string>("all");
+  const [currentTabId, setCurrentTabId] = useState<string>(
+    searchParams.get("food") ? (searchParams.get("food") as string) : "all"
+  );
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
