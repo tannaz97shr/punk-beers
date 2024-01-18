@@ -18,7 +18,11 @@ export default async function CartPage() {
     <>
       <SectionTitle>Shopping Cart</SectionTitle>
       <div>Sum of cart : {sum + "$"}</div>
-      <BeerCardsContainer beers={beers} />
+      {beers.length ? (
+        <BeerCardsContainer beers={beers} />
+      ) : (
+        <div>No Items yet</div>
+      )}
     </>
   );
 }
