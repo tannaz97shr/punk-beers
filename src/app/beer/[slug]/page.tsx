@@ -1,4 +1,5 @@
 import { getSingleBeer } from "@/api/beers";
+import TextCollapse from "@/components/TextCollapse";
 import Modal from "@/components/UI/Modal";
 import Image from "next/image";
 
@@ -34,7 +35,7 @@ export default async function BeerPage({
             <span>{selectedBeer.tagline}</span>
             <span>ABV : {selectedBeer.abv}</span>
           </div>
-          <p className="m-4 line-clamp-2">{selectedBeer.description}</p>
+          <TextCollapse text={selectedBeer.description} />
         </>
       ) : (
         <div>Something went wrong</div>
